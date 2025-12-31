@@ -1,0 +1,13 @@
+[Unit]
+Description=MAVLink Router
+Wants=zerotier-one.service
+After=network-online.target zerotier-one.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/mavlink-routerd -e 192.168.1.67:14550
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
