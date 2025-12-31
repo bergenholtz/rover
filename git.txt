@@ -1,0 +1,6 @@
+ssh-keygen -t rsa -b 4096 -C "bergenholtz@gmail.com" 
+ssh-add ~/.ssh/id_rsa
+
+
+macOS: pbcopy < ~/.ssh/id_rsa.pub
+Linux: cat ~/.ssh/id_rsa.pub (then manually copy the output)
