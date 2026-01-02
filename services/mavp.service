@@ -1,0 +1,13 @@
+[Unit]
+Description=MAVP Serice (mavlink proxy service)
+After=network.target  # Wait for network if needed; remove if not
+
+[Service]
+ExecStart=/bin/bash -c '/home/erik/mavproxy_env/bin/mavproxy.py --master=/dev/ttyAMA0 --baudrate=57600 --out=udp:192.168.1.67:14550 --daemon --non-interactive'
+Type=simple  
+User=root
+Restart=on-failure # Or always
+RestartSec=10s  
+
+[Install]
+WantedBy=multi-user.target
