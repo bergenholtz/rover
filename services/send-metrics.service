@@ -1,0 +1,12 @@
+[Unit]
+Description=Send Misc Metrics overs Mavlink
+After=network.target  # Wait for network if needed; remove if not
+
+[Service]
+ExecStart=/bin/bash -c 'source /home/erik/mavproxy_env/bin/activate && python /home/erik/git/sensors/send-metrics.py'
+Type=simple  
+User=root
+Restart=on-failure 
+
+[Install]
+WantedBy=multi-user.target
